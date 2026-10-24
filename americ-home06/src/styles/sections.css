@@ -1,0 +1,272 @@
+/* ==========================================================================
+   Page sections for Home 06, in page order. Layout only — visual styling
+   comes from components.css and tokens from theme.css.
+   Desktop numbers were measured at a 1440px viewport.
+   ========================================================================== */
+
+/* Fixed-attachment parallax backgrounds (hero, video, contact) [V] */
+.bg-fixed {
+  background-color: var(--color-media-fallback);
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: var(--bg-pos, 50% 0%);
+  background-attachment: fixed;
+}
+/* Touch devices ignore fixed attachment badly; fall back to scroll */
+@media (hover: none), (max-width: 1024px) {
+  .bg-fixed { background-attachment: scroll; }
+}
+
+/* ==== 1. Hero [V] ======================================================= */
+.hero {
+  position: relative;
+  min-height: 971px; /* [V] */
+  --bg-pos: 50% 0%;
+}
+.hero__panel {
+  position: absolute;
+  right: 0; bottom: 0;
+  width: 48.2%;            /* [V] 691 / 1434 */
+  min-height: 358px;       /* [V] */
+  padding: 68px 97px 60px 37px; /* [V] text at +37 / +68 */
+  background: rgba(138, 146, 146, 0.38);   /* [A] original is a frosted PNG */
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  color: var(--color-secondary);
+}
+.hero__title { max-width: 557px; color: var(--color-secondary); font-size: var(--fs-hero); line-height: 1.2; }
+.hero__text { max-width: 557px; margin-top: 41px; font-size: var(--fs-lead); }
+
+@media (max-width: 1024px) {
+  .hero { min-height: 758px; } /* [V] */
+  .hero__panel { width: 80%; padding: 56px 40px; }
+}
+@media (max-width: 767px) {
+  .hero { min-height: 638px; } /* [V] */
+  .hero__panel { left: 38px; width: auto; min-height: 338px; padding: 30px 28px 32px; } /* [V] 338×338 */
+  .hero__text { margin-top: 24px; }
+}
+
+/* ==== 2. Services carousel [V] ========================================== */
+.services { padding-top: 150px; padding-bottom: 80px; }
+.services .section-title { text-align: center; }
+.services .carousel {
+  --per-view: 3;
+  margin-top: 50px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+@media (max-width: 1024px) {
+  .services { padding-top: 80px; }
+  .services .carousel { --per-view: 2; }
+}
+@media (max-width: 767px) {
+  .services { padding-top: 80px; padding-bottom: 40px; }
+  .services .carousel { --per-view: 1; margin-top: 40px; }
+  .service-card__title { margin-top: 30px; }
+  .service-card__text { margin-top: 15px; }
+}
+
+/* ==== 3. Stat carousel + intro [V] ====================================== */
+.stats-intro { padding-top: 40px; padding-bottom: 77px; } /* [V] section 500px */
+.stats-intro__grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* [V] 956 / 478 */
+  align-items: start;
+}
+.stats-intro .carousel { --per-view: 2; --carousel-gap: 40px; } /* [V] 20px slide padding */
+.stats-intro__text { padding: 15px 0 30px 60px; } /* [V] text at x+60 */
+.stats-intro__text .section-title { max-width: 403px; }
+.stats-intro__text .section-desc { margin-top: 24px; max-width: 360px; }
+@media (max-width: 1199px) {
+  .stats-intro .carousel { --per-view: 1; } /* [V] slides_to_show_lg: 1 */
+}
+@media (max-width: 1024px) {
+  .stats-intro__grid { grid-template-columns: 1fr; gap: 40px; }
+  .stats-intro__text { padding: 0; }
+  .stats-intro__text .section-title, .stats-intro__text .section-desc { max-width: none; }
+}
+
+/* ==== 4 & 9. Marquee bands [V] ========================================== */
+.marquee--welcome { padding: 45px 0 26px; }
+.marquee--contact { padding: 25px 0 30px; }
+@media (max-width: 767px) {
+  .marquee--welcome { padding: 20px 0; }
+}
+
+/* ==== 5. Portfolio [V] ================================================== */
+.portfolio { padding-block: 133px 120px; } /* [V] heading at +133, 120px after the list */
+.portfolio__head {
+  display: grid;
+  grid-template-columns: 844fr 586fr; /* [V] */
+  gap: var(--grid-gap);
+  align-items: start;
+  margin-bottom: 80px;
+}
+@media (max-width: 1024px) { .portfolio { padding-block: 70px; } .portfolio__head { margin-bottom: 50px; } }
+.portfolio__head .section-desc { max-width: 556px; padding-top: 6px; }
+.portfolio__body { display: flex; }
+.portfolio__body .portfolio-list { width: 50%; padding-right: 18px; } /* [V] */
+.portfolio__media { width: 50%; padding-left: 143px; } /* [V] */
+@media (max-width: 1024px) {
+  .portfolio__head { grid-template-columns: 1fr; gap: var(--heading-gap); }
+  .portfolio__media { padding-left: 40px; }
+}
+@media (max-width: 767px) {
+  .portfolio__body .portfolio-list { width: 100%; padding-right: 0; }
+  .portfolio__media { display: none; }
+  .portfolio-row__thumb { display: block; margin-bottom: 30px; aspect-ratio: var(--ratio-portfolio-sm); overflow: hidden; } /* [V] */
+  .portfolio-row__thumb img { width: 100%; height: 100%; object-fit: cover; }
+  .portfolio-row__inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+}
+
+/* ==== 6. Client logos [V] =============================================== */
+.clients { padding-bottom: 50px; }
+.clients .carousel {
+  --per-view: 5;
+  border-top: 1px solid var(--color-border-dark);
+}
+.client-logo {
+  display: grid;
+  place-items: center;
+  height: 235px; /* [V] */
+  color: #fff;
+  opacity: 0.85;
+  transition: opacity var(--dur);
+}
+.client-logo:hover { opacity: 1; color: #fff; }
+.client-logo svg { height: 85px; width: auto; }
+@media (max-width: 1199px) { .clients .carousel { --per-view: 4; } }
+@media (max-width: 1024px) { .clients .carousel { --per-view: 3; } }
+@media (max-width: 767px)  { .clients .carousel { --per-view: 2; } .client-logo { height: 150px; } }
+
+/* ==== 7. Video banner [V] =============================================== */
+.video-banner {
+  display: grid;
+  place-items: center;
+  min-height: 775px; /* [V] */
+  padding-block: 150px;
+}
+@media (max-width: 1024px) { .video-banner { min-height: 530px; } } /* [V] */
+
+/* ==== 8. Team [V] ======================================================= */
+.team { padding-top: 110px; padding-bottom: 105px; } /* [V] first photo at +160, section 1195px */
+.team__grid {
+  display: grid;
+  grid-template-columns: 961fr 473fr; /* [V] */
+  align-items: start;
+}
+.team__members {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 80px 50px; /* [V] 503px row pitch, 25px item padding each side */
+  padding-top: 50px;
+  padding-right: 20px;
+}
+.team__intro {
+  position: sticky;
+  top: calc(var(--header-height) + 40px);
+  padding: 64px 0 0 74px; /* [V] text at x+74 */
+}
+.team__intro .section-title { max-width: 330px; } /* [V] breaks as "Meet our / professional / team" */
+.team__intro .section-desc { margin-top: 24px; max-width: 375px; }
+@media (max-width: 1024px) {
+  .team__grid { grid-template-columns: 1fr; }
+  .team__members { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 50px 30px; padding: 0; }
+  .team__intro { position: static; padding: 50px 0 0; }
+}
+@media (max-width: 767px) {
+  .team { padding-top: 50px; padding-bottom: 20px; }
+  .team__members { grid-template-columns: 1fr; }
+}
+
+/* ==== 10. Contact [V] =================================================== */
+.contact { padding-block: 100px 98px; --bg-pos: 50% 0%; } /* [V] 85/83 section + 15px column padding */
+.contact__inner { display: flex; justify-content: flex-end; }
+.contact-card { width: 679px; max-width: 100%; margin-right: 2px; } /* [V] 738→1417 */
+@media (max-width: 1024px) {
+  .contact__inner { justify-content: center; }
+  .contact-card { width: 100%; margin: 0; }
+}
+
+/* ==== 11. Footer [V] ==================================================== */
+.site-footer {
+  display: grid;
+  grid-template-columns: 2fr 1fr; /* [V] 956 / 478 */
+  min-height: 541px; /* [V] */
+  color: var(--color-footer-text);
+  font-size: var(--fs-small);
+}
+.site-footer__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 96px 15px 0;
+  background: var(--color-footer-bg);
+}
+.site-footer__cols {
+  display: grid;
+  grid-template-columns: 373fr 217fr 218fr 148fr; /* [V] */
+}
+.site-footer__brand { padding-right: 60px; }
+.site-footer__brand .logo { color: var(--color-footer-heading); font-size: 36px; }
+.site-footer__brand .logo svg { width: 42px; height: 36px; }
+.site-footer__brand p { margin-top: 26px; max-width: 300px; }
+.site-footer__bar {
+  margin-top: 90px;
+  padding-block: 16px;
+  border-top: 1px solid var(--color-border-footer);
+  font-size: 15px;
+}
+.site-footer__aside {
+  padding: 96px 30px 60px;
+  background: var(--color-footer-bg-alt);
+  text-align: center;
+}
+.site-footer__aside h2 { color: var(--color-footer-heading); font-size: var(--fs-h3); }
+.world-map { position: relative; max-width: 418px; margin: 75px auto 0; } /* [V] map 111px below title top */
+.world-map img { width: 100%; }
+.world-map__pin {
+  position: absolute;
+  left: var(--x); top: var(--y);
+  width: 10px; height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: var(--color-secondary);
+  color: inherit;
+}
+.world-map__pin::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  background: inherit;
+  animation: pin-pulse 2s ease-out infinite;
+}
+.world-map__pin span {
+  position: absolute;
+  bottom: 18px; left: 50%;
+  padding: 2px 10px;
+  background: var(--color-secondary);
+  color: var(--color-primary);
+  font-size: 13px;
+  white-space: nowrap;
+  transform: translate(-50%, 6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-fast), transform var(--dur-fast);
+}
+.world-map__pin:hover span, .world-map__pin:focus-visible span { opacity: 1; transform: translate(-50%, 0); }
+@keyframes pin-pulse { to { transform: scale(3); opacity: 0; } }
+
+@media (max-width: 1024px) {
+  .site-footer { grid-template-columns: 1fr; min-height: 0; }
+  .site-footer__main { padding-top: 60px; }
+  .site-footer__cols { grid-template-columns: 1fr 1fr 1fr; gap: 40px 20px; }
+  .site-footer__brand { grid-column: 1 / -1; padding: 0; }
+  .site-footer__bar { margin-top: 50px; }
+  .site-footer__aside { padding: 50px 15px; }
+}
+@media (max-width: 767px) {
+  .site-footer__cols { grid-template-columns: 1fr 1fr; } /* [V] Company + Customer side by side */
+  .site-footer__cols > :last-child { grid-column: 1 / -1; } /* [V] Offices full width */
+}

@@ -1,0 +1,201 @@
+/* ==========================================================================
+   Americ Home 06 — Design tokens
+   Single source of truth. Every other stylesheet reads from these variables.
+
+   Source tags:
+     [V] verified from the live reference's computed styles (2026-10-24)
+     [A] approximation — no matching element on Home 06, derived from [V] tokens
+   ========================================================================== */
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,400&display=swap");
+
+:root {
+  /* ---------- Brand palette ---------------------------------------------- */
+  --color-primary:        #263037; /* [V] theme --link-color: filled buttons, links */
+  --color-primary-rgb:    38, 48, 55;
+  --color-secondary:      #dbe8e8; /* [V] theme's own "--primary-color": pale mint, light text on dark */
+  --color-secondary-rgb:  219, 232, 232;
+  --color-accent:         #758e99; /* [V] slate-blue outline stroke on marquee text */
+  --color-ink:            #233032; /* [V] heading colour, outline-button border */
+  --color-ink-deep:       #1f262a; /* [V] darkest button border on showcase */
+
+  /* ---------- Surfaces --------------------------------------------------- */
+  --color-background:     #f2f2f2; /* [V] page background */
+  --color-surface:        #e4e5e5; /* [V] contact card */
+  --color-surface-dark:   #253136; /* [V] portfolio + clients section */
+  --color-media-fallback: #1e3136; /* [V] behind team photos */
+  --color-overlay-glass:  rgba(219, 232, 232, 0.12); /* [A] hero frosted panel (original is a PNG) */
+
+  /* ---------- Text ------------------------------------------------------- */
+  --color-heading:        var(--color-ink);   /* [V] */
+  --color-text:           #475355;            /* [V] body copy */
+  --color-muted:          #868f91;            /* [V] text on dark, footer links */
+  --color-heading-invert: #e7e9e9;            /* [V] headings on dark */
+  --color-text-invert:    var(--color-secondary); /* [V] */
+  --color-numeral:        #425255;            /* [V] big portfolio numbers */
+
+  /* ---------- Borders ---------------------------------------------------- */
+  --color-border:         #cbcbcb; /* [V] service-card dividers on light bg */
+  --color-border-strong:  var(--color-ink); /* [V] outline buttons */
+  --color-border-input:   #9da2a4; /* [V] underline inputs */
+  --color-border-dark:    #3e4a4d; /* [V] dividers on dark sections */
+  --color-border-footer:  #232b2e; /* [V] footer dividers */
+
+  /* ---------- Buttons & interaction -------------------------------------- */
+  --color-button-bg:          var(--color-primary);   /* [V] */
+  --color-button-text:        var(--color-secondary); /* [V] */
+  --color-button-hover:       #000000;                /* [V] theme --link-color-hover */
+  --color-button-hover-text:  #ffffff;                /* [V] contact-form .btn:hover */
+  --color-button-outline-hover-bg: var(--color-ink);  /* [A] the reference animates; we fill */
+  --color-link:               var(--color-primary);   /* [V] */
+  --color-link-hover:         #000000;                /* [V] */
+  --color-link-invert-hover:  #ffffff;                /* [A] */
+  --color-focus-ring:         var(--color-accent);    /* [A] reference has no visible focus style */
+
+  /* ---------- Footer ----------------------------------------------------- */
+  --color-footer-bg:      #121a1d; /* [V] */
+  --color-footer-bg-alt:  #1a2528; /* [V] map column */
+  --color-footer-heading: var(--color-secondary); /* [V] */
+  --color-footer-text:    var(--color-muted);     /* [V] */
+
+  /* ---------- Typography ------------------------------------------------- */
+  --font-display: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif; /* [V] */
+  --font-body:    var(--font-display);
+  --font-nav:     var(--font-display);
+  --font-button:  var(--font-display);
+
+  --fw-light:   300;
+  --fw-regular: 400; /* [V] all headings */
+  --fw-medium:  500; /* [V] buttons */
+  --fw-bold:    700; /* [V] marquee only */
+
+  /* Type scale — desktop (≥1025px). Tablet/mobile overrides below. */
+  --fs-marquee:  150px; /* [V] stays 150px at all sizes */
+  --fs-hero:     47px;  /* [V] */
+  --fs-h2:       45px;  /* [V] section headings */
+  --fs-h3:       30px;  /* [V] footer "Where can you find us?" */
+  --fs-h4:       28px;  /* [V] blog-card titles */
+  --fs-h5:       26px;  /* [V] service-card titles */
+  --fs-h6:       24px;  /* [V] team names, footer column titles */
+  --fs-name:     24px;  /* [V] team names — same at every breakpoint */
+  --fs-lead:     20px;  /* [V] hero / section intro */
+  --fs-body:     18px;  /* [V] */
+  --fs-small:    16px;  /* [V] card excerpts, footer links */
+  --fs-xs:       14px;  /* [V] nav, roles */
+  --fs-label:    14px;  /* [A] eyebrow — Home 06 has none */
+  --fs-numeral:  130px; /* [V] portfolio numerals, line-height 0.8 */
+  --fs-portfolio-title: 32px; /* [V] */
+  --fs-counter:  100px; /* [V] "5K" on stat cards */
+
+  --lh-tight:    1.2;   /* [V] 54/45 */
+  --lh-heading:  1.25;
+  --lh-body:     1.666; /* [V] 30/18 */
+  --ls-heading:  0.35px;/* [V] */
+  --ls-button:   0.4px; /* [V] */
+  --ls-label:    0.12em;/* [A] */
+
+  /* ---------- Layout ----------------------------------------------------- */
+  --container-max:    1410px; /* [V] content spans x=15…1425 at a 1440 viewport */
+  --container-wide:   1400px; /* [V] mega-menu width */
+  --gutter:           15px;   /* [V] column padding, same at every breakpoint */
+  --page-gutter:      var(--gutter);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 30px;  /* [V] carousel gutter */
+  --space-8: 40px;
+  --space-9: 50px;
+  --space-10: 70px; /* [V] portfolio section padding */
+  --space-11: 80px; /* [V] services/team top padding */
+  --space-12: 150px;/* [V] video banner padding */
+
+  --section-py:        var(--space-11); /* [V] 80px default */
+  --section-py-dark:   var(--space-10); /* [V] 70px */
+  --grid-gap:          var(--space-7);  /* [V] 30px */
+  --grid-gap-lg:       var(--space-9);  /* [V] team grid 25px item padding ×2 */
+  --card-padding:      106px 50px 92px 63px; /* [V] service card */
+  --card-padding-sm:   var(--space-8);
+  --form-card-padding: 66px 76px 80px 80px;  /* [V] contact card */
+  --heading-gap:       var(--space-5);  /* [A] heading → description */
+  --heading-block-gap: var(--space-9);  /* [A] heading block → content */
+
+  /* ---------- Components ------------------------------------------------- */
+  --header-height:     77px;  /* [V] desktop; 80px on tablet/mobile */
+  --btn-height:        52px;  /* [V] */
+  --btn-padding-x:     38px;  /* [V] outline; filled is 40px */
+  --input-height:      50px;  /* [V] */
+  --video-btn-size:    240px; /* [V] */
+
+  --radius-none:  0;      /* [V] images, cards */
+  --radius-sm:    6px;    /* [V] toolbar */
+  --radius-pill:  100px;  /* [V] buttons */
+  --radius-round: 50%;    /* [V] video button */
+
+  --shadow-dropdown: 0 5px 5px rgba(0, 0, 0, 0.05);   /* [V] sub-menu */
+  --shadow-float:    0 12px 35px rgba(0, 0, 0, 0.12); /* [V] fixed toolbar */
+
+  --ratio-hero:      auto;
+  --ratio-service:   1 / 1;     /* icons are ~90px square */
+  --ratio-blog:      600 / 435; /* [V] */
+  --ratio-portfolio: 557 / 771; /* [V] rendered size of the featured image */
+  --ratio-portfolio-sm: 345 / 217; /* [V] per-row image on mobile */
+  --ratio-team:      440 / 554; /* [V] ~4:5 */
+  --ratio-video:     16 / 9;
+
+  /* ---------- Motion ----------------------------------------------------- */
+  --ease:            cubic-bezier(0.25, 0.8, 0.25, 1);
+  --dur-fast:        0.2s;
+  --dur:             0.4s;
+  --dur-slow:        0.8s;
+  --marquee-duration: 16s; /* [V] */
+  --carousel-delay:   5000; /* [V] ms, read by JS */
+  --carousel-speed:   500;  /* [V] ms, read by JS */
+  --hover-scale:      1.05; /* [V] image hover */
+
+  /* ---------- Breakpoints (reference only — CSS can't use vars in @media) -
+     --bp-mobile: 767px   [V] Elementor mobile
+     --bp-tablet: 1024px  [V] Elementor tablet, header switches to hamburger
+     --bp-xl:     1400px  [V] carousels show one extra slide above this
+  ------------------------------------------------------------------------- */
+}
+
+/* Tablet ≤1024px */
+@media (max-width: 1024px) {
+  :root {
+    --fs-h2:   35px; /* [V] */
+    --fs-h4:   22px; /* [V] */
+    --header-height: 80px; /* [V] */
+    --section-py: 70px;
+    --card-padding: 60px 40px;
+    --form-card-padding: 66px 60px 80px;   /* [A] */
+    --fs-numeral: 100px;                   /* [A] */
+    --fs-portfolio-title: 28px;            /* [A] */
+    --fs-counter: 80px;                    /* [A] */
+  }
+}
+
+/* Mobile ≤767px */
+@media (max-width: 767px) {
+  :root {
+    --fs-hero:  35px; /* [V] */
+    --fs-h2:    30px; /* [V] */
+    --fs-h3:    26px;
+    --fs-h4:    17px; /* [V] */
+    --fs-h5:    23px; /* [V] */
+    --fs-h6:    18px; /* [V] footer titles; team names stay 24px via component */
+    --fs-lead:  18px; /* [V] */
+    --fs-small: 14px; /* [V] */
+    --fs-numeral: 80px;           /* [V] */
+    --fs-portfolio-title: 25px;   /* [V] */
+    --fs-counter: 64px;           /* [A] */
+    --section-py: 50px; /* [V] team top padding */
+    --section-py-dark: 50px;
+    --card-padding: 50px 20px;    /* [V] */
+    --form-card-padding: 66px 50px 80px; /* [V] */
+    --video-btn-size: 200px;      /* [V] */
+  }
+}

@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<link rel="stylesheet" crossorigin href="/assets/components-BZvWYwAD.css">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Americ Home 06 Style Guide</title>
+<style>
+  /* Style-guide chrome only. Single light theme on purpose: it mirrors the reference. */
+  :root { color-scheme: light; }
+  .sg-section { padding-block: 64px; border-bottom: 1px solid var(--color-border); }
+  .sg-label { font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: var(--ls-label); color: var(--color-muted); margin-bottom: var(--space-6); }
+  .sg-tag { font-size: 12px; color: var(--color-accent); margin-left: 6px; }
+  .swatches { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
+  .swatch { border: 1px solid var(--color-border); background: #fff; }
+  .swatch__chip { height: 72px; }
+  .swatch__meta { padding: 10px 12px; font-size: 13px; line-height: 1.4; }
+  .swatch__meta code { color: var(--color-muted); font-size: 12px; }
+  .type-row { display: grid; grid-template-columns: 170px 1fr; gap: var(--space-5); align-items: baseline; padding-block: var(--space-4); border-top: 1px solid var(--color-border); }
+  .type-row code { font-size: 12px; color: var(--color-muted); }
+  .row { display: flex; flex-wrap: wrap; gap: var(--space-5); align-items: center; }
+  .demo-header { position: relative; background: var(--color-surface-dark); }
+  .demo-header .site-header { position: relative; }
+  .logo-text { font-size: 26px; font-weight: 600; letter-spacing: -0.5px; color: inherit; }
+  .media--placeholder { background: linear-gradient(135deg, #3b4a4f, var(--color-media-fallback)); }
+  .services-row { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--color-border); }
+  .portfolio-demo { display: grid; grid-template-columns: 1fr 0.8fr; gap: var(--grid-gap); }
+  @media (max-width: 1024px) { .services-row, .portfolio-demo { grid-template-columns: 1fr; } }
+  @media (max-width: 767px) { .type-row { grid-template-columns: 1fr; gap: 4px; } }
+</style>
+
+<header class="demo-header">
+  <div class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__logo logo-text" href="#">Americ</a>
+      <nav class="nav" aria-label="Main">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a class="nav__link" href="#">Home <svg class="nav__caret" viewBox="0 0 10 6" fill="none" stroke="currentColor"><path d="M1 1l4 4 4-4"/></svg></a>
+            <ul class="dropdown">
+              <li><a href="#">Home 01</a></li><li><a href="#">Home 06</a></li><li><a href="#">Landing page</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#">Pages <svg class="nav__caret" viewBox="0 0 10 6" fill="none" stroke="currentColor"><path d="M1 1l4 4 4-4"/></svg></a>
+            <ul class="dropdown"><li><a href="#">About us</a></li><li><a href="#">Our team</a></li><li><a href="#">Pricing</a></li></ul>
+          </li>
+          <li class="nav__item"><a class="nav__link" href="#">Services</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Portfolio</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Blog</a></li>
+          <li class="nav__item"><a class="nav__link" href="#">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="site-header__actions">
+        <button class="icon-btn" aria-label="Search"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg></button>
+        <button class="icon-btn" aria-label="Open menu"><span class="burger"><span></span><span></span><span></span></span></button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="sg-section"><div class="container">
+    <p class="sg-label">Colour tokens</p>
+    <div class="swatches" id="swatches"></div>
+  </div></section>
+
+  <section class="sg-section"><div class="container">
+    <p class="sg-label">Type scale · DM Sans · resize to see tablet / mobile values</p>
+    <div class="type-row"><code>--fs-hero</code><h1>Digital transformation to grow your company</h1></div>
+    <div class="type-row"><code>--fs-h2</code><h2>We provide the premium services</h2></div>
+    <div class="type-row"><code>--fs-h3</code><h3>Where can you find us?</h3></div>
+    <div class="type-row"><code>--fs-h4</code><h4>Tips for marketing &amp; strategy</h4></div>
+    <div class="type-row"><code>--fs-h5</code><h5>Tax strategy</h5></div>
+    <div class="type-row"><code>--fs-h6</code><h6>Company</h6></div>
+    <div class="type-row"><code>--fs-lead</code><p class="lead">Fringilla urna porttitor rhoncus dolor purus luctus venenatis lectus.</p></div>
+    <div class="type-row"><code>--fs-body</code><p>Body copy sits at 18px on a 30px line, in the slate-grey text colour used across the page.</p></div>
+    <div class="type-row"><code>--fs-small</code><p class="small">Card excerpts and footer links use the small size.</p></div>
+    <div class="type-row"><code>--fs-label</code><span class="eyebrow">Section label</span></div>
+  </div></section>
+
+  <section class="sg-section"><div class="container">
+    <p class="sg-label">Buttons</p>
+    <div class="row">
+      <a class="btn btn--primary" href="#">Send Message</a>
+      <a class="btn btn--outline" href="#">View About Us</a>
+      <a class="btn btn--outline btn--sm" href="#">Small</a>
+    </div>
+    <div class="row on-dark" style="margin-top:var(--space-6);padding:var(--space-7)">
+      <a class="btn btn--outline" href="#">Outline on dark</a>
+      <a class="video-btn" href="#">▶&nbsp; Play Video</a>
+    </div>
+  </div></section>
+
+  <section class="sg-section"><div class="container">
+    <p class="sg-label">Section heading + service cards</p>
+    <div class="section-head section-head--center">
+      <span class="eyebrow">What we do</span>
+      <h2 class="section-head__title">We provide the premium services for business</h2>
+    </div>
+    <div class="services-row">
+      <article class="service-card"><svg class="service-card__icon" viewBox="0 0 90 72" fill="none" stroke="currentColor"><rect x="1" y="8" width="70" height="54"/><path d="M1 20h70M8 48l14-12 12 8 18-18 12 10"/></svg><h3 class="service-card__title">Tax strategy</h3><p class="service-card__text">Plan filings across the year so quarterly payments never surprise you.</p></article>
+      <article class="service-card"><svg class="service-card__icon" viewBox="0 0 90 72" fill="none" stroke="currentColor"><circle cx="30" cy="36" r="26"/><circle cx="44" cy="36" r="26"/></svg><h3 class="service-card__title">Manage investment</h3><p class="service-card__text">Portfolio reviews with clear risk bands and a quarterly rebalance.</p></article>
+      <article class="service-card"><svg class="service-card__icon" viewBox="0 0 90 72" fill="none" stroke="currentColor"><rect x="1" y="8" width="70" height="54"/><path d="M14 52V36M30 52V26M46 52V32M62 52V18"/></svg><h3 class="service-card__title">We Build Success</h3><p class="service-card__text">Operating plans tied to the three numbers your board watches.</p></article>
+    </div>
+  </div></section>
+
+  <section class="sg-section"><div class="container">
+    <p class="sg-label">Statistic blocks · blog card</p>
+    <div class="grid grid--3">
+      <article class="stat-card"><div class="media media--blog media--placeholder"></div><div class="stat-card__body"><span class="stat-card__number">24K</span><span class="stat-card__label">Tips for marketing &amp; strategy</span></div></article>
+      <article class="blog-card"><div class="media media--blog media--placeholder"></div><p class="blog-card__meta">March 12 · Strategy</p><h3 class="blog-card__title"><a href="#">A business consulting that can produce</a></h3></article>
+      <div class="grid grid--2" style="align-content:start">
+        <div class="stat"><div class="stat__number">4K</div><div class="stat__label">Projects completed</div></div>
+        <div class="stat"><div class="stat__number">98%</div><div class="stat__label">Client retention</div></div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="on-dark section--dark"><div class="container">
+    <div class="section-head section-head--split">
+      <h2 class="section-head__title">Our latest portfolio</h2>
+      <p class="section-head__desc">Selected engagements from the last two years.</p>
+    </div>
+    <div class="portfolio-demo">
+      <ol class="portfolio-list">
+        <li class="portfolio-row is-active"><span class="portfolio-row__num">01</span><span class="portfolio-row__title">Treasury rebuild for a regional lender</span></li>
+        <li class="portfolio-row"><span class="portfolio-row__num">02</span><span class="portfolio-row__title">Pricing model for a logistics group</span></li>
+        <li class="portfolio-row"><span class="portfolio-row__num">03</span><span class="portfolio-row__title">Board reporting for a health network</span></li>
+      </ol>
+      <div class="media media--portfolio media--placeholder"></div>
+    </div>
+  </div></section>
+
+  <div class="marquee" aria-hidden="true"><div class="marquee__track">
+    <span class="marquee__text">Let’s contact – Let’s contact –</span><span class="marquee__text">Let’s contact – Let’s contact –</span>
+  </div></div>
+
+  <section class="sg-section"><div class="container">
+    <p class="sg-label">Team cards · workflow steps <span class="sg-tag">[A]</span></p>
+    <div class="grid grid--4">
+      <article class="team-card"><div class="media media--team media--placeholder"><div class="team-card__social"><a href="#" aria-label="LinkedIn">in</a><a href="#" aria-label="X">x</a></div></div><h3 class="team-card__name">Jesica Doe</h3><p class="team-card__role">Manager</p></article>
+      <div class="step"><div class="step__num">Discover</div><h3 class="step__title">Audit the numbers</h3><p class="step__text">Two weeks reading ledgers and interviewing finance leads.</p></div>
+      <div class="step"><div class="step__num">Plan</div><h3 class="step__title">Set the targets</h3><p class="step__text">A one-page plan with owners and dates.</p></div>
+      <div class="step"><div class="step__num">Deliver</div><h3 class="step__title">Run the change</h3><p class="step__text">Monthly check-ins until targets hold.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sg-section"><div class="container">
+    <p class="sg-label">Testimonial · pricing <span class="sg-tag">[A] not on Home 06</span></p>
+    <div class="grid grid--3">
+      <figure class="testimonial" style="margin:0"><blockquote class="testimonial__quote" style="margin:0">They turned a messy quarterly close into a five-day routine.</blockquote><figcaption class="testimonial__author"><span class="testimonial__avatar media--placeholder"></span><span><span class="testimonial__name">Maxim Smith</span><br><span class="testimonial__role">CFO, Northwind</span></span></figcaption></figure>
+      <div class="pricing"><h3 class="pricing__name">Advisory</h3><p class="pricing__price">$1,900 <small>/ month</small></p><ul class="pricing__list"><li>Monthly review</li><li>Quarterly board pack</li><li>Email support</li></ul><a class="btn btn--outline" href="#">Choose plan</a></div>
+      <div class="pricing pricing--featured"><h3 class="pricing__name">Partner</h3><p class="pricing__price">$4,800 <small>/ month</small></p><ul class="pricing__list"><li>Weekly sessions</li><li>Fractional CFO</li><li>Priority support</li></ul><a class="btn btn--outline" href="#">Choose plan</a></div>
+    </div>
+  </div></section>
+
+  <section class="sg-section" style="background:var(--color-media-fallback)"><div class="container">
+    <div class="contact-card" style="max-width:680px;margin-left:auto">
+      <h2 class="contact-card__title">Let’s get in touch</h2>
+      <form class="form" onsubmit="event.preventDefault()">
+        <label class="visually-hidden" for="sg-name">Your name</label><input class="field" id="sg-name" placeholder="Your Name">
+        <label class="visually-hidden" for="sg-email">Your email</label><input class="field" id="sg-email" type="email" placeholder="Your Email">
+        <label class="visually-hidden" for="sg-msg">Your message</label><textarea class="field" id="sg-msg" placeholder="Your Message"></textarea>
+        <button class="btn btn--primary" type="submit">Send Message</button>
+      </form>
+    </div>
+  </div></section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__main">
+    <div class="site-footer__cols">
+      <div class="footer-col"><span class="logo-text" style="color:var(--color-footer-heading)">Americ</span><p style="margin-top:var(--space-5)">Business consulting for finance teams that want fewer surprises.</p><div class="footer-social"><a href="#">f</a><a href="#">x</a><a href="#">in</a><a href="#">ig</a></div></div>
+      <div class="footer-col"><h3 class="footer-col__title">Company</h3><ul><li><a href="#">About us</a></li><li><a href="#">Careers</a></li><li><a href="#">Projects</a></li><li><a href="#">Join our team</a></li></ul></div>
+      <div class="footer-col"><h3 class="footer-col__title">Customer</h3><ul><li><a href="#">Client support</a></li><li><a href="#">Latest articles</a></li><li><a href="#">Pricing packages</a></li></ul></div>
+      <div class="footer-col"><h3 class="footer-col__title">Offices</h3><ul><li><a href="#">Press enquiries</a></li><li><a href="#">Get in touch</a></li><li><a href="#">Find an office</a></li></ul></div>
+    </div>
+    <div class="site-footer__bar">© All Rights Reserved. Americ.</div>
+  </div>
+  <div class="site-footer__aside"><h3>Where can you find us?</h3></div>
+</footer>
+
+<script>
+  const tokens = [
+    ["--color-primary","Primary · buttons, links"],["--color-secondary","Secondary · light text"],["--color-accent","Accent · strokes"],
+    ["--color-ink","Ink · headings"],["--color-background","Page background"],["--color-surface","Card / form surface"],
+    ["--color-surface-dark","Alt section (dark)"],["--color-text","Body text"],["--color-muted","Muted text"],
+    ["--color-border","Border (light)"],["--color-border-dark","Border (dark)"],["--color-border-input","Input underline"],
+    ["--color-button-hover","Button hover"],["--color-numeral","Portfolio numerals"],["--color-footer-bg","Footer"],["--color-footer-bg-alt","Footer aside"]
+  ];
+  const root = getComputedStyle(document.documentElement);
+  document.getElementById("swatches").innerHTML = tokens.map(([v, label]) => {
+    const val = root.getPropertyValue(v).trim();
+    return `<div class="swatch"><div class="swatch__chip" style="background:var(${v})"></div><div class="swatch__meta">${label}<br><code>${v}</code><br><code>${val}</code></div></div>`;
+  }).join("");
+</script>
+
+</html>

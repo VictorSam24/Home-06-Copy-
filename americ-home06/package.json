@@ -1,0 +1,16 @@
+{
+  "name": "americ-home06",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Recreation of the Americ Home 06 page with a centralised design system.",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "dotted-map": "^2.2.3",
+    "vite": "5.4.11"
+  }
+}
