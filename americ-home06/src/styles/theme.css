@@ -33,6 +33,9 @@
   --color-heading-invert: #e7e9e9;            /* [V] headings on dark */
   --color-text-invert:    var(--color-secondary); /* [V] */
   --color-numeral:        #425255;            /* [V] big portfolio numbers */
+  --color-label:          #4c626b;            /* [A] accent darkened for AA as small text on light */
+  --color-label-invert:   #a9bcc4;            /* [A] accent lightened for AA as small text on dark */
+  --color-muted-strong:   #a7b0b2;            /* [A] small muted text on dark (AA at 14–16px) */
 
   /* ---------- Borders ---------------------------------------------------- */
   --color-border:         #cbcbcb; /* [V] service-card dividers on light bg */

@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "americ-home06",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "americ-home06", "--", "--port", "5174", "--strictPort"],
+      "port": 5174
+    }
+  ]
+}
