@@ -78,7 +78,7 @@
   position: relative;
   min-height: 971px; /* [V] Americ hero */
   overflow: hidden;
-  background: var(--color-media-fallback);
+  background: var(--color-band-1);
 }
 .apar-hero--page { min-height: 820px; }
 .apar-hero__media, .banner__media { position: absolute; inset: 0; }
@@ -89,9 +89,9 @@
   z-index: 1;
   height: var(--header-fade);
   background: linear-gradient(
-    rgb(18 26 29 / var(--header-opacity)) 0,
-    rgb(18 26 29 / calc(var(--header-opacity) * 0.94)) var(--header-height),
-    rgb(18 26 29 / 0) 100%
+    color-mix(in srgb, var(--color-band-1) calc(var(--header-opacity) * 100%), transparent) 0,
+    color-mix(in srgb, var(--color-band-1) calc(var(--header-opacity) * 94%), transparent) var(--header-height),
+    transparent 100%
   );
   pointer-events: none;
 }
@@ -99,9 +99,9 @@
   .apar-hero::before { display: none; }
 }
 
-/* Slate-tinted frosted glass: calm, and AA for mint text on any photo */
+/* Frosted glass in band colour 2: calm, and AA for mint text on any photo */
 .glass {
-  background: rgba(37, 49, 54, 0.84);
+  background: color-mix(in srgb, var(--color-band-2) 88%, transparent);
   -webkit-backdrop-filter: blur(14px);
   backdrop-filter: blur(14px);
   color: var(--color-secondary);
@@ -150,7 +150,7 @@
   font-size: clamp(48px, 5.2vw, 80px);
   font-weight: var(--fw-light);
   line-height: 1;
-  color: var(--color-ink);
+  color: var(--color-heading);
   white-space: nowrap;
 }
 .stat-item__label { display: block; margin-top: 18px; font-size: var(--fs-small); max-width: 16em; }
@@ -167,7 +167,7 @@
 /* ---- Numbered rows on slate [Americ portfolio list] -------------------- */
 .band { padding-block: 120px; }
 .band .head { margin-bottom: 70px; }
-.rows { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-border-dark); }
+.rows { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--color-border); }
 .row {
   position: relative;
   display: grid;
@@ -175,7 +175,7 @@
   gap: 30px 50px;
   align-items: end;
   padding: 34px 0 30px;
-  border-bottom: 1px solid var(--color-border-dark);
+  border-bottom: 1px solid var(--color-border);
   color: var(--color-numeral);
   transition: color 0.35s;
 }
@@ -208,7 +208,7 @@
   min-height: 775px; /* [V] */
   padding: 150px var(--gutter);
   overflow: hidden;
-  background: var(--color-media-fallback);
+  background: var(--color-band-1);
 }
 .banner__panel { position: relative; padding: 50px 60px; text-align: center; }
 .banner__title { font-size: clamp(32px, 4.4vw, 60px); line-height: 1.15; max-width: 14ch; }
@@ -266,8 +266,8 @@
   margin: 50px 0 0; padding: 0;
   list-style: none;
 }
-.logo-slot { height: 120px; border: 1px dashed var(--color-border-dark); }
-.clients-band__sectors { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--color-border-dark); color: var(--color-muted-strong); }
+.logo-slot { height: 120px; border: 1px dashed var(--color-border); }
+.clients-band__sectors { margin-top: 40px; padding-top: 30px; border-top: 1px solid var(--color-border); color: var(--color-muted-strong); }
 @media (max-width: 1024px) { .logo-slots { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 @media (max-width: 767px) { .logo-slots { grid-template-columns: repeat(2, minmax(0, 1fr)); } .logo-slot { height: 90px; } }
 
@@ -302,7 +302,7 @@
 }
 
 /* ---- Marquee band + CTA card [Americ "Let's contact" + contact card] -- */
-.cta-section { padding-bottom: 110px; }
+.cta-section { padding-block: 60px 110px; }
 .cta-card {
   display: grid;
   grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
@@ -314,7 +314,7 @@
 .cta-card__body { font-size: var(--fs-lead); }
 .cta-card__actions { display: flex; flex-wrap: wrap; gap: var(--space-4); margin-top: 36px; }
 @media (max-width: 1024px) {
-  .cta-section { padding-bottom: 70px; }
+  .cta-section { padding-block: 40px 70px; }
   .cta-card { grid-template-columns: 1fr; }
 }
 @media (max-width: 767px) {
@@ -323,12 +323,21 @@
 }
 
 /* ---- Footer offices --------------------------------------------------- */
+.site-footer__main { background: var(--color-band-1); }
+.site-footer__aside { background: var(--color-band-2); } /* offices + map column */
 .site-footer__brand .logo__img { height: 72px; }
 .site-footer__tagline { margin-top: 26px; color: var(--color-muted-strong); }
 .site-footer__links { display: flex; gap: var(--space-3); margin: 0; padding: 0; list-style: none; }
 .site-footer__links a { color: var(--color-muted-strong); }
 .site-footer__links a:hover { color: var(--color-footer-heading); }
-.site-footer__bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); color: var(--color-muted-strong); }
+/* Copyright bar: full width of the footer's main column, on band 2 */
+.site-footer__bar {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3);
+  margin-inline: -15px; padding-inline: 15px;
+  border-top: 0;
+  background: var(--color-band-2);
+  color: var(--color-muted-strong);
+}
 .offices { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; text-align: left; }
 .office__city { font-size: var(--fs-h6); color: var(--color-footer-heading); }
 .office__email { display: inline-block; margin-top: 10px; color: var(--color-muted-strong); overflow-wrap: anywhere; }
@@ -343,7 +352,8 @@
 @media (max-width: 1024px) { .work { padding-block: 70px; } .work__grid { grid-template-columns: 1fr; } }
 
 /* ---- IoT: coverage cards [Americ service card] ------------------------- */
-.coverage { padding-bottom: 110px; }
+.coverage { padding-block: 110px; }
+.coverage .service-card__icon { color: var(--color-heading); }
 .coverage .label { margin-bottom: 50px; }
 .coverage__grid {
   display: grid;
@@ -356,9 +366,9 @@
 .coverage__grid .service-card { padding: 60px 36px 56px 0; }
 .coverage__grid li:not(:first-child) .service-card { padding-left: 36px; }
 .coverage__grid li:last-child .service-card { border-right: 0; }
-.coverage__grid .service-card__title { margin-top: 40px; color: var(--color-primary); }
+.coverage__grid .service-card__title { margin-top: 40px; color: var(--color-heading); }
 @media (max-width: 1024px) {
-  .coverage { padding-bottom: 70px; }
+  .coverage { padding-block: 70px; }
   .coverage__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .coverage__grid li:nth-child(2) .service-card { border-right: 0; }
   .coverage__grid li:nth-child(-n + 2) { border-bottom: 1px solid var(--color-border); }
@@ -383,11 +393,11 @@
   font-size: var(--fs-lead);
   color: var(--color-heading);
 }
-.ticks svg { width: 18px; height: 18px; margin-top: 6px; color: var(--color-label); }
+.ticks svg { width: 18px; height: 18px; margin-top: 6px; color: var(--color-label-invert); }
 @media (max-width: 1024px) { .outcomes { padding-block: 70px; } .outcomes__grid { grid-template-columns: 1fr; } }
 
 /* ---- IoT: FAQ accordion ----------------------------------------------- */
-.faq { padding-block: 110px; background: #fff; }
+.faq { padding-block: 110px; }
 .faq__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: 40px; }
 .faq__list { border-top: 1px solid var(--color-border); }
 .faq__item { border-bottom: 1px solid var(--color-border); }
@@ -408,7 +418,7 @@
   position: absolute;
   right: 12px; top: 50%;
   width: 18px; height: 1.5px;
-  background: var(--color-ink);
+  background: currentColor;
   transition: transform var(--dur) var(--ease);
 }
 .faq__item summary::after { transform: rotate(90deg); }
@@ -417,3 +427,25 @@
 .faq__answer { padding: 0 56px 30px 0; max-width: 46em; }
 @media (max-width: 1024px) { .faq { padding-block: 70px; } .faq__grid { grid-template-columns: 1fr; } }
 @media (max-width: 767px) { .faq__item summary { font-size: 20px; } }
+
+/* ---- Dark bands --------------------------------------------------------
+   Sections cycle --color-band-1 → 2 → 3 down the page; cards sit one step
+   lighter than their section. Used with .on-dark (buttons, links, labels).
+   Band 3 is light enough that the grey text tokens fall under AA, so all
+   text on it switches to mint. */
+.band-1, .band-2, .band-3 {
+  background: var(--band-bg);
+  color: var(--color-muted-strong);
+  --color-heading: var(--color-heading-invert);
+  --color-border: var(--color-border-dark);
+}
+.band-1 { --band-bg: var(--color-band-1); }
+.band-2 { --band-bg: var(--color-band-2); }
+.band-3 {
+  --band-bg: var(--color-band-3);
+  --color-muted-strong: var(--color-secondary);
+  --color-label-invert: var(--color-secondary);
+  --color-border: rgb(219 232 232 / 0.28);
+  --color-numeral: rgb(219 232 232 / 0.32);
+  --color-accent: rgb(219 232 232 / 0.55);
+}

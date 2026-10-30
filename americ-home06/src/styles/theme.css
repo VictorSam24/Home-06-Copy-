@@ -25,6 +25,10 @@
   --color-surface-dark:   #253136; /* [V] portfolio + clients section */
   --color-media-fallback: #1e3136; /* [V] behind team photos */
   --color-overlay-glass:  rgba(219, 232, 232, 0.12); /* [A] hero frosted panel (original is a PNG) */
+  /* Apar pages: section backgrounds cycle 1 → 2 → 3 → 1 down the page (client palette) */
+  --color-band-1:         #181c1f;
+  --color-band-2:         #273135;
+  --color-band-3:         #4f595d;
 
   /* ---------- Text ------------------------------------------------------- */
   --color-heading:        var(--color-ink);   /* [V] */
