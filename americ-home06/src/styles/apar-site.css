@@ -1,0 +1,10 @@
+/* Single stylesheet entry for the Apar pages. Linking the five files
+   separately let Vite's build split them into shared chunks and load
+   components.css after apar.css, so base rules (e.g. .on-dark's background)
+   beat the Apar overrides in production. Importing them here keeps one
+   bundle in this exact cascade order. */
+@import "./theme.css";
+@import "./base.css";
+@import "./components.css";
+@import "./sections.css";
+@import "./apar.css";
